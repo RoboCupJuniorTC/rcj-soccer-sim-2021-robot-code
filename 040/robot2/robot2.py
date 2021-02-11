@@ -4,9 +4,8 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
-# You can now import scripts that you put into the folder with your
-# robot B1 controller
-from rcj_soccer_player_b1 import rcj_soccer_robot, utils
+
+from robot1 import rcj_soccer_robot, utils
 ######
 
 
