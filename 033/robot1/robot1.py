@@ -1,11 +1,14 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
 # rcj_soccer_player controller - ROBOT B1
 
 # Feel free to import built-in libraries
 import math
 
 # You can also import scripts that you put into the folder with controller
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+from team_033_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_033_libraries.robot1 import utils
       
 class MyRobot(RCJSoccerRobot):    
     def run(self):
