@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
 # rcj_soccer_player controller - ROBOT Y1
 
 ###### REQUIRED in order to import files from B1 controller
@@ -8,8 +11,8 @@ from time import time
 sys.path.append(str(Path(".").absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from robot1.europa.striker import Striker
-from robot1.europa.vector import Vector, angle, distance, is_angle_between
+from team_007_libraries.robot1.europa.striker import Striker
+from team_007_libraries.robot1.europa.vector import Vector, angle, distance, is_angle_between
 
 ######
 

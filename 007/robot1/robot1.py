@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
 # rcj_soccer_player controller - ROBOT Y1
 
 ###### REQUIRED in order to import files from B1 controller
@@ -6,7 +9,7 @@ from pathlib import Path
 from time import time
 
 sys.path.append(str(Path(".").absolute().parent))
-from robot1.europa.goalie import Goalie
+from team_007_libraries.robot1.europa.goalie import Goalie
 
 
 class MyRobot(Goalie):

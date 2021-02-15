@@ -4,8 +4,8 @@ from pathlib import Path
 
 sys.path.append(str(Path(".").absolute().parent))
 
-from europa.europa import Europa
-from europa.vector import Vector, angle, distance, is_angle_between
+from team_002_libraries.robot1.europa.europa import Europa
+from team_002_libraries.robot1.europa.vector import Vector, angle, distance, is_angle_between
 
 
 class StrikerState(Enum):

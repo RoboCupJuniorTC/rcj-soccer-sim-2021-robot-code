@@ -8,8 +8,8 @@ from enum import Enum
 import math
 
 sys.path.append(str(Path(".").absolute().parent))
-from europa.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-from europa.vector import Vector, distance, length
+from team_002_libraries.robot1.europa.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_002_libraries.robot1.europa.vector import Vector, distance, length
 
 millis = lambda: int(round(time() * 1000))
 
