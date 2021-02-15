@@ -1,3 +1,6 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
 ###### REQUIRED in order to import files from B1 controller
 import sys
 import time
@@ -5,12 +8,12 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # robot B1 controller
 try:
-    from rcj_soccer_player_b1 import hey
+    from team_002_libraries.robot1 import hey
     print("blue")
-    from rcj_soccer_player_b1 import rcj_soccer_robot, utils
+    from team_002_libraries.robot1 import rcj_soccer_robot, utils
 except:
     print("yellow")
-    from rcj_soccer_player_y1 import rcj_soccer_robot, utils
+    from team_002_libraries.robot1 import rcj_soccer_robot, utils
 
 import math
 
