@@ -1,6 +1,10 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+
 # Warning This code is very poorly written but it works and due to the shortage time it must be enough
 import math
-import rcj_soccer_robot
+from team_014_libraries.robot1 import rcj_soccer_robot
 
 def angle_ball(robot_angle,x_1,x_2,y_1,y_2):
     angle = math.degrees(math.atan2(y_1 - y_2,x_1 - x_2))
