@@ -1,6 +1,11 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B2
 
-import rcj_soccer_robot, utils
+from team_025_libraries.robot2 import rcj_soccer_robot, utils
 
 # Feel free to import built-in libraries
 import math

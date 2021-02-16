@@ -2,10 +2,10 @@ import math
 
 from controller import Robot
 
-from GamaData import GameData
-import Utils
+from team_025_libraries.robot1.GamaData import GameData
+from team_025_libraries.robot1 import Utils
 
-from Consts import TIMESTEP
+from team_025_libraries.robot1.Consts import TIMESTEP
 
 class SoccerRobot:
     def __init__(self) -> None:

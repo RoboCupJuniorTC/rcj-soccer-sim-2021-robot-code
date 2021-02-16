@@ -1,7 +1,7 @@
 import struct
 from controller import Robot
 
-from Consts import ROBOTNAMES, NROBOTS
+from team_025_libraries.robot1.Consts import ROBOTNAMES, NROBOTS
 
 class DataReceiver:
     def __init__(self, robot: Robot, timestep: int) -> None:

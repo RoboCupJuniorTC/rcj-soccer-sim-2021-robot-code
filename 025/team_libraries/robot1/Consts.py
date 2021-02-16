@@ -1,4 +1,4 @@
-from Utils import Vector2
+from team_025_libraries.robot1.Utils import Vector2
 
 TIMESTEP = 64
 

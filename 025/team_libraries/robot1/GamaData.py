@@ -2,10 +2,10 @@ import time
 
 from controller import Robot
 
-from DataReceiver import DataReceiver
-import Utils
+from team_025_libraries.robot1.DataReceiver import DataReceiver
+from team_025_libraries.robot1 import Utils
 
-from Consts import BLUEGOAL, YELLOWGOAL, GKATTACKSPOT
+from team_025_libraries.robot1.Consts import BLUEGOAL, YELLOWGOAL, GKATTACKSPOT
 
 class GameData():
     def __init__(self, robot: Robot, timestep: int):

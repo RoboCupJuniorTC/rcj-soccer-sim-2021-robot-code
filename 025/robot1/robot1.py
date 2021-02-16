@@ -1,12 +1,17 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B1
 
 import math
 import time
 
-from SoccerRobot import SoccerRobot
-import Utils
+from team_025_libraries.robot1.SoccerRobot import SoccerRobot
+from team_025_libraries.robot1 import Utils
 
-from Consts import BLUEGOAL, YELLOWGOAL, TIMESTEP, BLUEPENALTYAREA, GKATTACKSPOT, GKDEFENSESPOT
+from team_025_libraries.robot1.Consts import BLUEGOAL, YELLOWGOAL, TIMESTEP, BLUEPENALTYAREA, GKATTACKSPOT, GKDEFENSESPOT
 
 
 class Goalkeeper(SoccerRobot):
