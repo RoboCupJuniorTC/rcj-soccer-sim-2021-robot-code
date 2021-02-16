@@ -5,8 +5,8 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 
-from rcj_soccer_player_b1 import rcj_soccer_robot, utils, minhas_tarefas
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_021_libraries.robot1 import rcj_soccer_robot, utils, minhas_tarefas
+from team_021_libraries.robot2.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
 #-----------------------------------------------------------------------------------------
 #----------------------------------------------------------------IMPORT BUILT_IN LIBRARIES
 # Feel free to import built-in libraries here
