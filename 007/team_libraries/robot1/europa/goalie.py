@@ -4,9 +4,9 @@ from enum import Enum
 from typing import Tuple
 
 sys.path.append(str(Path(".").absolute().parent))
-from team_002_libraries.robot1.europa.consts import BLUE_PENALTY_AREA, YELLOW_PENALTY_AREA
-from team_002_libraries.robot1.europa.europa import Europa
-from team_002_libraries.robot1.europa.vector import Vector, distance
+from team_007_libraries.robot1.europa.consts import BLUE_PENALTY_AREA, YELLOW_PENALTY_AREA
+from team_007_libraries.robot1.europa.europa import Europa
+from team_007_libraries.robot1.europa.vector import Vector, distance
 
 
 class GoalieState(Enum):

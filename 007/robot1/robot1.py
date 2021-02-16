@@ -14,7 +14,7 @@ from team_007_libraries.robot1.europa.goalie import Goalie
 
 class MyRobot(Goalie):
     def __init__(self):
-        super(MyRobot, self).__init__(blue=self.team.startswith("B"))
+        super().__init__()
 
 
 my_robot = MyRobot()

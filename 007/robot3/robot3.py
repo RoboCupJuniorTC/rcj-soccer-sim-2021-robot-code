@@ -24,7 +24,7 @@ millis = lambda: int(round(time() * 1000))
 
 class MyRobot(Striker):
     def __init__(self):
-        super(MyRobot, self).__init__(blue=self.team.startswith("B"))
+        super().__init__()
 
 
 my_robot = MyRobot()
