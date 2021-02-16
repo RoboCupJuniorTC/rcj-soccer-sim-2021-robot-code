@@ -1,4 +1,10 @@
-# rcj_soccer_player controller - ROBOT B2
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
+# rcj_soccer_player controller - ROBOT B3
+
 #team = "BLUE"
 
 ###### REQUIRED in order to import files from B1 controller
@@ -7,8 +13,7 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from bishops_knights_b1 import rcj_soccer_robot, utils
-
+from team_036_libraries.robot1 import rcj_soccer_robot, utils
 ######
 
 # Feel free to import built-in libraries
@@ -49,9 +54,9 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                 if frameCount > 10 and frameCount % 10 == 0:
                     robot_movement = math.sqrt((recentPos["x"] - robot_pos["x"])**2
                                  + (recentPos["y"] - robot_pos["y"])**2)
-                    #print("b2 movement " + str(robot_movement))
-                    #print("b2 recent pos " + str(recentPos))
-                    #print("b2 current pos " + str(robot_pos))
+                    #print("b3 movement " + str(robot_movement))
+                    #print("b3 recent pos " + str(recentPos))
+                    #print("b3 current pos " + str(robot_pos))
 
                 # Get angle between the robot and the ball
                 # and between the robot and the north
@@ -72,13 +77,22 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                 #uses distance equation to calculate distance between ball and robot
                 dist = math.sqrt((ball_pos["x"] - robot_pos["x"])**2
                                  + (ball_pos["y"] - robot_pos["y"])**2)
-                #print("b2 dist " + str(dist))
+                #print("b3 dist " + str(dist))
+
+                #for the first 30 frames, the center bot goes forward
+                if frameCount < 30:
+                    left_speed = -10
+                    right_speed = -10
+
+                    # Set the speed to motors
+                    self.left_motor.setVelocity(left_speed)
+                    self.right_motor.setVelocity(right_speed)
 
 
                 #if robot isn't moving and isn't super close to the ball, probably stuck in clump and
                 # should try to get unstuck by backing out
-                if robot_movement < 0.017 and frameCount > 70 and dist > .1:
-                    #print("b2 do ma lil dancey dance?")
+                elif robot_movement < 0.017 and frameCount > 70 and dist > .1:
+                    #print("b3 do ma lil dancey dance?")
                     if 0.005 < robot_movement < 0.017:
                         #reverse out
                         left_speed = 5
@@ -161,8 +175,12 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                         left_speed = -7
                         right_speed = -7
                     else:
-                        left_speed = direction * 5
-                        right_speed = direction * -5
+                        left_speed = direction * 4
+                        right_speed = direction * -4
+
+                    # if close:
+                    #     left_speed = 0
+                    #     right_speed = 0
 
                     # Set the speed to motors
                     self.left_motor.setVelocity(left_speed)
@@ -171,7 +189,7 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
 
                 #if robot is almost touching the ball (<.07 away) move toward the goal
                 else:
-                    #print("b2 goal bound wheee")
+                    #print("b3 goal bound wheee")
                     if team == "BLUE":
                         goal_pos = {'x': 0.0, 'y': -0.75} #position of yellow/scoring goal
                     else:
@@ -194,6 +212,7 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                 if frameCount % 10 == 0:
                     recentPos = robot_pos
                     #print("b3 recentPos" + str(recentPos))
+
 
 
 my_robot = MyRobot()
