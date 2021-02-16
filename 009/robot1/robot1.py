@@ -1,11 +1,16 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B1
 
 # Feel free to import built-in libraries
 import math
 
 # You can also import scripts that you put into the folder with controller
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+from team_009_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_009_libraries.robot1 import utils
 
 class MyRobot(RCJSoccerRobot):
     
@@ -55,12 +60,16 @@ class MyRobot(RCJSoccerRobot):
                 
             return left_speed, right_speed, done
         
-        state = 0
+        state = 3
         if self.name[0] == "Y":
-            home = {'x':-0.5,'y':0.0}
+            home = {'x':-0.5,'y':0.5}
+            goal = -0.7
+            angle = math.pi
         else:
-            home = {'x':0.5,'y':0.0}
-        
+            home = {'x':0.5,'y':0.5}
+            goal = 0.7
+            angle = -math.pi
+            
         time = 0
         
         ball_pos = {'x':0.0,'y':0.0}
@@ -94,8 +103,7 @@ class MyRobot(RCJSoccerRobot):
                     left_speed = direction * 4
                     right_speed = direction * -4
                 """
-                
-                angle = -math.pi/2
+               
                 
                 # go to point
                 if state==0:
@@ -109,20 +117,38 @@ class MyRobot(RCJSoccerRobot):
                     left_speed, right_speed, done = to_angle(robot_pos, point)
                     if done:
                         state = 2
+                    
+                # wait for ball to get in a desirable position
+                elif state==2:
+                    if True:
+                        state = 3
                         
                 # go to ball's position 1s before it gets there
-                elif state==2:
+                elif state==3:
                     time += 1
-                    if robot_pos['y'] > ball_pos['y']:
-                        left_speed = 10
-                        right_speed = 10
-                    if robot_pos['y'] < ball_pos['y']:
-                        left_speed = -10
-                        right_speed = -10
+                    from_goal_vector = {'x':ball_pos['x']+goal,'y':ball_pos['y']}
+                    from_goal_vector = normalize(from_goal_vector)
                     
+                    ball_hit_pos = {'x':from_goal_vector['x']*.1+ball_pos['x'],'y':from_goal_vector['y']*.1+ball_pos['y']}
+                    left_speed, right_speed = to_point(robot_pos, ball_hit_pos, 1)
+                    if math.sqrt(math.pow(robot_pos['x']-ball_hit_pos['x'],2)+math.pow(robot_pos['y']-ball_hit_pos['y'],2)) <= 0.01:
+                        state = 4
                     if time > 300:
                         time = 0
                         state = 0
+                        
+                # go to ball
+                elif state==4:
+                    time += 1
+                    left_speed, right_speed = to_point(robot_pos, ball_pos, 1)
+                    if self.name[0] == "Y":
+                        if ball_v['x'] < -0.01 or time > 300:
+                            time = 0
+                            state = 0
+                    else:
+                        if ball_v['x'] > 0.01 or time > 300:
+                            time = 0
+                            state = 0
                 
                 # Set the speed to motors
                 self.left_motor.setVelocity(left_speed)
