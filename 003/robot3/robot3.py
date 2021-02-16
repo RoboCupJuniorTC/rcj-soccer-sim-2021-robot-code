@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B2
 
 ###### REQUIRED in order to import files from B1 controller
@@ -10,16 +15,16 @@ sys.path.append(str(Path('.').absolute().parent))
 
 # tries to import from rcj_soccer_player_b1 first then from rcj_soccer_player_b1 and then from i_bots_2_robot_1
 try:
-    from rcj_soccer_player_b1 import asdf45s3df45
+    from team_003_libraries.robot1 import asdf45s3df45
     print("blue")
-    from rcj_soccer_player_b1 import rcj_soccer_robot, utils, coords
+    from team_003_libraries.robot1 import rcj_soccer_robot, utils, coords
 except:
     try:
-        from rcj_soccer_player_b1 import asdf45s3df45
+        from team_003_libraries.robot1 import asdf45s3df45
         print("yellow")
-        from rcj_soccer_player_y1 import rcj_soccer_robot, utils, coords
+        from team_003_libraries.robot1 import rcj_soccer_robot, utils, coords
     except:
-        from i_bots_2_robot_1 import rcj_soccer_robot, utils, coords
+        from team_003_libraries.robot1 import rcj_soccer_robot, utils, coords
 
 import math
 # Feel free to import built-in libraries
