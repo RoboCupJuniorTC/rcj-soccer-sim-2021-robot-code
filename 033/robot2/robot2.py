@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 from team_033_libraries.robot1 import rcj_soccer_robot, utils
-import team_033_libraries.robot2.def_functions
+from team_033_libraries.robot2 import def_functions
 
 class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
     def getName(self):
