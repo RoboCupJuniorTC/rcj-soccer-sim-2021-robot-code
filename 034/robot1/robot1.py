@@ -5,8 +5,8 @@ team = "BLUE"
 import math
 
 # You can also import scripts that you put into the folder with controller
-import rcj_soccer_robot
-import utilsAlex
+from team_034_libraries.robot1 import rcj_soccer_robot
+from team_034_libraries.robot1 import utilsAlex
 
 teamMod = 1
 if team == "BLUE":

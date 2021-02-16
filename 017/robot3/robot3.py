@@ -1,10 +1,10 @@
-# rcj_soccer_player controller - ROBOT B2
+# rcj_soccer_player controller - ROBOT B3
 #----------------------------------------------------------------- DO NOT CHANGE OR DELETE
 import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 
-import rcj_soccer_robot
+from team_017_libraries.robot1 import rcj_soccer_robot
 #-----------------------------------------------------------------------------------------
 #----------------------------------------------------------------IMPORT BUILT_IN LIBRARIES
 # Feel free to import built-in libraries here
@@ -35,20 +35,19 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
         # ----------------------------------------------------------------------------
         if not band_import:
             if self.name[0] == 'Y':
-                from rcj_soccer_player_y1 import my_functions
+                from team_017_libraries.robot1 import my_functions
             else:
-                from rcj_soccer_player_b1 import my_functions
+                from team_017_libraries.robot1 import my_functions
             band_import = True
         # ----------------------------------------------------------------------------   
         while self.robot.step(rcj_soccer_robot.TIME_STEP) != -1:
             if self.is_new_data():
                 data = self.get_new_data()
                 # ********************************************************************
-                # codigo stardust ***********************************************
-               
+                # Codigo stardust ***********************************************
+                              
                 chut_band = my_functions.stardust_artilheiro(self, data, STOP_NEAR_GOALKEEPER, chut_band, KICK_INTENSITY_DEFAULT)
 
-                     
                 # ********************************************************************
 
 

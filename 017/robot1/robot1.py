@@ -5,9 +5,9 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 
 # You can also import scripts that you put into the folder with controller
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_017_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
 
-import my_functions
+from team_017_libraries.robot1 import my_functions
 #-----------------------------------------------------------------------------------------
 #----------------------------------------------------------------IMPORT BUILT_IN LIBRARIES
 # Feel free to import built-in libraries here

@@ -7,7 +7,7 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from bishops_knights_a1 import rcj_soccer_robot, utils_Will
+from team_034_libraries.robot1 import rcj_soccer_robot, utils_Will
 ######
 
 # Feel free to import built-in libraries
