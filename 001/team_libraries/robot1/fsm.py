@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # This file is part of Team Omicron in RoboCup Jr 2021 Soccer Simulation.
 # Copyright (c) 2021 Ethan Lo & Matt Young. All rights reserved.
 #
@@ -8,7 +13,7 @@
 # This code partially inspired by our FSM written in C, as used in 2019 and 2020
 # on our RoboCup Jr Open/Lightweight robots.
 
-from predictor import Predictor
+from team_001_libraries.robot1.predictor import Predictor
 
 # TODO consider moving to states.py?
 class RobotState:
@@ -41,7 +46,7 @@ class StateMachine:
         if self.current_state is not None:
             self.current_state.update(self, rs)
         else:
-            import utils
+            from team_001_libraries.robot1 import utils
             utils.log("ERROR: Tried to update FSM with null state!", rs)
 
     def change_state(self, rs: RobotState, new_state):

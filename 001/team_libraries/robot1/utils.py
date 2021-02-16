@@ -7,7 +7,7 @@
 #
 # Contains various utilities for Omicron agent
 from math import atan2, sqrt, pi, copysign, ceil
-from fsm import RobotState
+from team_001_libraries.robot1.fsm import RobotState
 import time
 import random
 

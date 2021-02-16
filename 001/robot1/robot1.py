@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # This file is part of Team Omicron in RoboCup Jr 2021 Soccer Simulation.
 # Copyright (c) 2021 Ethan Lo & Matt Young. All rights reserved.
 #
@@ -9,12 +14,12 @@
 # Based on the rcj_soccer_player controller that ships with the simulator.
 
 import math
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import fsm
-import states
-import utils
-from fsm import RobotState, StateMachine
-import ipc
+from team_001_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_001_libraries.robot1 import fsm
+from team_001_libraries.robot1 import states
+from team_001_libraries.robot1 import utils
+from team_001_libraries.robot1.fsm import RobotState, StateMachine
+from team_001_libraries.robot1 import ipc
 
 class OmicronAgent(RCJSoccerRobot):
     def setup(self):
