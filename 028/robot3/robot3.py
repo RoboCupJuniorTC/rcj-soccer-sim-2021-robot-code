@@ -1,5 +1,10 @@
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
+from team_028_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_028_libraries.robot1 import utils
 
 import math
 # You can also import scripts that you put into the folder with controller

@@ -1,7 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 import math
 import struct
 from typing import Tuple
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_028_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
 from controller import Robot
 
 dist1 = 1
