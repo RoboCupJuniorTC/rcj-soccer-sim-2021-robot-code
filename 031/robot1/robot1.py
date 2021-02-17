@@ -1,11 +1,16 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B1
 
 # Feel free to import built-in libraries
 import math, time
 
 # You can also import scripts that you put into the folder with controller
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+from team_031_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_031_libraries.robot1 import utils
 
 
 class MyRobot(RCJSoccerRobot):
@@ -21,7 +26,7 @@ class MyRobot(RCJSoccerRobot):
         err = 0
         speed = -10
         rTime = time.time()
-        goal = {'x': -0.7, 'y': 0}
+        goal = {'x': -0.7, 'y': 0} if self.name[0] == 'B' else {'x': 0.7, 'y': 0}
         old_robot_pos = {'x': 0, 'y': 0}
         flag = 0
         cnt = 0

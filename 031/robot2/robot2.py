@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
 # rcj_soccer_player controller - ROBOT B3
 
 ###### REQUIRED in order to import files from B1 controller
@@ -6,7 +10,7 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from rcj_soccer_player_b1 import rcj_soccer_robot, utils
+from team_031_libraries.robot1 import rcj_soccer_robot, utils
 ######
 
 # Feel free to import built-in libraries
@@ -27,10 +31,10 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
         rTime = time.time()
         flag = 1
         goal = {'x': -0.7, 'y': 0}
-        mygoal = {'x': 0.7, 'y': 0}
-        goalStay = {'x': 0.5, 'y': 0}
+        mygoal = {'x': 0.7, 'y': 0} if self.name[0] == 'B' else {'x': -0.7, 'y': 0}
+        goalStay = {'x': 0.5, 'y': 0} if self.name[0] == 'B' else {'x': -0.5, 'y': 0}
         old_ball_pos = {'x': 0, 'y': 0}
-        centralPoint = {'x': 0.15, 'y': 0}
+        centralPoint = {'x': 0.15, 'y': 0} if self.name[0] == 'B' else {'x': -0.15, 'y': 0}
         cnt = 0
 
         #Please subscribe to us!
@@ -76,7 +80,7 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                             R = 0.1   
                         )
                     )
-                    if(ball_pos["x"] > 0.2):
+                    if ((ball_pos["x"] > 0.2) and self.name[0] == 'B') or ((ball_pos["x"] < 0.2) and self.name[0] == 'B'):
                         speed = -10
                     else:
                         if(utils.norm(robot_pos["x"] - goalStay["x"], robot_pos["y"] - goalStay["y"]) > 0.05 or robot_pos["x"] < 0.35):
