@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # team = 'BLUE'
 # rcj_soccer_player controller - ROBOT Y1
 
@@ -5,8 +10,8 @@
 import math
 
 # You can also import scripts that you put into the folder with controller
-import rcj_soccer_robot
-import utils
+from team_037_libraries.robot1 import rcj_soccer_robot
+from team_037_libraries.robot1 import utils
 
 
 class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
