@@ -1,5 +1,10 @@
-import helveticmath
-from rcj_soccer_robot import TIME_STEP
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
+from team_008_libraries.robot1 import helveticmath
+from team_008_libraries.robot1.rcj_soccer_robot import TIME_STEP
 import math
 
 

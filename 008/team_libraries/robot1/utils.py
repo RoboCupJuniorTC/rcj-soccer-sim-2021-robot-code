@@ -1,5 +1,10 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 import math
-import helveticmath
+from team_008_libraries.robot1 import helveticmath
 
 
 def get_direction(ball_angle: float) -> int:
