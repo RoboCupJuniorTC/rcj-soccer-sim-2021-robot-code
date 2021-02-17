@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT Y2
 
 ###### REQUIRED in order to import files from Y1 controller
@@ -8,7 +13,7 @@ from typing import Tuple
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from rcj_soccer_player_b1 import rcj_soccer_robot, utils
+from team_004_libraries.robot1 import rcj_soccer_robot, utils
 ######
 
 # Feel free to import built-in libraries
