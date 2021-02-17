@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 
 #---------------------------------TATU F.C. ROBOT 1----------------------------------------
 import sys
@@ -6,7 +11,7 @@ sys.path.append(str(Path('.').absolute().parent))
 
 from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
 
-import tatu_fc
+from team_027_libraries.robot1 import tatu_fc
 import math
 
 LADO_CAMPO = True

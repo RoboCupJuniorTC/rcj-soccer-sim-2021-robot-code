@@ -1,10 +1,15 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 
 #---------------------------------TATU F.C. ROBOT 3----------------------------------------
 import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 
-import rcj_soccer_robot
+from team_027_libraries.robot1 import rcj_soccer_robot
 import math
 
 LADO_CAMPO = True
@@ -34,9 +39,9 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
 
         if not IMPORT_FLAG:
             if self.name[0] == 'Y':
-                from rcj_soccer_player_y1 import tatu_fc
+                from team_027_libraries.robot1 import tatu_fc
             else:
-                from rcj_soccer_player_b1 import tatu_fc
+                from team_027_libraries.robot1 import tatu_fc
             IMPORT_FLAG = True
 
         while self.robot.step(rcj_soccer_robot.TIME_STEP) != -1:
