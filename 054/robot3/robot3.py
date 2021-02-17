@@ -1,13 +1,13 @@
-# rcj_soccer_player controller - ROBOT B2
-
-###### REQUIRED in order to import files from B1 controller
 import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
-# You can now import scripts that you put into the folder with your
-# robot B1 controller
-from rcj_soccer_player_b1 import rcj_soccer_robot
-import utils
+sys.path.append('/app/controllers')
+
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+from team_054_libraries.robot1 import rcj_soccer_robot
+from team_054_libraries.robot2 import utils
 ######
 
 # Feel free to import built-in libraries
@@ -15,6 +15,10 @@ import math
 
 
 class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
+    def gd(ball_angle: float) -> int:
+        if ball_angle >= 345 or ball_angle <= 15:
+            return 0
+        return -1 if ball_angle < 180 else 1
     def run(self):
         while self.robot.step(rcj_soccer_robot.TIME_STEP) != -1:
             if self.is_new_data():
@@ -31,7 +35,7 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
 
                 # Compute the speed for motors
                 direction = utils.get_direction(ball_angle)
-                
+
                 # If the robot has the ball right in front of it, go forward,
                 # rotate otherwise
                 if direction == 0:
