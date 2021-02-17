@@ -1,3 +1,8 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
 # rcj_soccer_player controller - ROBOT B2
 
 ###### REQUIRED in order to import files from B1 controller
@@ -6,11 +11,11 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
-from robot1 import utils
+from team_041_libraries.robot1 import utils
 
 
-from robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-from robot1.intercepts import interceptCalculator
+from team_041_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_041_libraries.robot1.intercepts import interceptCalculator
 ######
 
 
@@ -22,11 +27,11 @@ import math
 
 # You can also import scripts that you put into the folder with controller
 
-from robot1.CoordinateRecalculator import coor_recalc, robot_pos_recalc
-from robot1.GoToFunc import goTo
-from robot1.Goalie import goalie_angles, goalie_cal_Y, correct_rotation
-from robot1.SupportOptiPos import support_position
-from robot1.MovementCalculator import fit_parabola, get_tangent_point, passes_boundary
+from team_041_libraries.robot1.CoordinateRecalculator import coor_recalc, robot_pos_recalc
+from team_041_libraries.robot1.GoToFunc import goTo
+from team_041_libraries.robot1.Goalie import goalie_angles, goalie_cal_Y, correct_rotation
+from team_041_libraries.robot1.SupportOptiPos import support_position
+from team_041_libraries.robot1.MovementCalculator import fit_parabola, get_tangent_point, passes_boundary
 
 ######
 
