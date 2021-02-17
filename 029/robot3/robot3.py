@@ -1,8 +1,10 @@
 import sys
 from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+sys.path.append('/app/controllers')
+
+from team_029_libraries.robot3.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_029_libraries.robot3 import utils
 import math
 
 

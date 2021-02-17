@@ -1,8 +1,12 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
 
 import math
 
-from rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
-import utils
+from team_029_libraries.robot1.rcj_soccer_robot import RCJSoccerRobot, TIME_STEP
+from team_029_libraries.robot1 import utils
 x=0
 rangodist=.25
 class MyRobot(RCJSoccerRobot):
