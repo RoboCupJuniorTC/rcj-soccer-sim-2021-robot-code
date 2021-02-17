@@ -1,4 +1,9 @@
-# rcj_soccer_player controller - ROBOT B2
+import sys
+from pathlib import Path
+sys.path.append(str(Path('.').absolute().parent))
+sys.path.append('/app/controllers')
+
+# rcj_soccer_player controller - ROBOT B3
 
 ###### REQUIRED in order to import files from B1 controller
 import sys
@@ -6,11 +11,19 @@ from pathlib import Path
 sys.path.append(str(Path('.').absolute().parent))
 # You can now import scripts that you put into the folder with your
 # robot B1 controller
-from rcj_soccer_player_b1 import rcj_soccer_robot, utils
+from team_026_libraries.robot1 import rcj_soccer_robot, utils
 ######
 
 # Feel free to import built-in libraries
 import math
+
+import time
+
+global a
+a = 0
+
+b = 0
+
 
 
 class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
@@ -40,7 +53,6 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                 #    left_speed = direction * 4
                 #    right_speed = direction * -4
 
-
                 real_robot_angle = robot_angle*57
                 
 
@@ -56,46 +68,61 @@ class MyRobot(rcj_soccer_robot.RCJSoccerRobot):
                 #superova brana je robot_x -70
                 #a robot_y je 18 az -18
                 
-  
+                
 
                 
-    
-                if robot_x < 25:
-                    if (robot_x - 4) > ball_x:
-                        if direction == 0:
-                            left_speed = -10
-                            right_speed = -10
+                global a
+                
+                if a == 0:
+                    start_time = time.time()
+                    a = 1
+                
+                if ball_x > 75 or ball_x < -75:
+                    a = 0
+                  
+                if (time.time() - start_time) < 4:
+                    left_speed = -10
+                    right_speed = -10
+                
+                else:         
+                    if robot_x < 25:
+                        if (robot_x - 4) > ball_x:
+                            if direction == 0:
+                                left_speed = -10
+                                right_speed = -10
+                            else:
+                                left_speed = direction * 10
+                                right_speed = direction * -10
                         else:
-                            left_speed = direction * 10
-                            right_speed = direction * -10
+                            if real_robot_angle <= 274:
+                                if real_robot_angle >= 264: 
+                                    left_speed = 10
+                                    right_speed = 10
+                                else:
+                                    left_speed = 3
+                                    right_speed = -3
+                            else:
+                                left_speed = -3
+                                right_speed = 3
                     else:
                         if real_robot_angle <= 274:
                             if real_robot_angle >= 264: 
-                                left_speed = 10
-                                right_speed = 10
+                                left_speed = -10
+                                right_speed = -10
                             else:
                                 left_speed = 3
                                 right_speed = -3
                         else:
                             left_speed = -3
                             right_speed = 3
-                else:
-                    if real_robot_angle <= 274:
-                        if real_robot_angle >= 264: 
-                            left_speed = -10
-                            right_speed = -10
-                        else:
-                            left_speed = 3
-                            right_speed = -3
-                    else:
-                        left_speed = -3
-                        right_speed = 3
+                        
                 
-
+                
+                
                 # Set the speed to motors
                 self.left_motor.setVelocity(left_speed)
                 self.right_motor.setVelocity(right_speed)
-
+                
 
 my_robot = MyRobot()
 my_robot.run()
