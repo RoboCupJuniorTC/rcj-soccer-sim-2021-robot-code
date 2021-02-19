@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
+
 team = 'BLUE'
 # rcj_soccer_player controller - ROBOT B3
 

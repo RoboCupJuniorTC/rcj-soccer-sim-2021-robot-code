@@ -1,3 +1,7 @@
+import sys
+sys.path.append('/app/controllers/')
+sys.path.append('.')
+
 # rcj_soccer_player controller - ROBOT B2
 
 ###### REQUIRED in order to import files from B1 controller
